@@ -9,6 +9,7 @@ module.exports = (_, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.[contenthash].js',
+      publicPath: '/date-circle/',
       clean: true,
       publicPath: '/',
     },
@@ -54,4 +55,3 @@ module.exports = (_, argv) => {
     },
   };
 };
-
