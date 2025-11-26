@@ -11,6 +11,9 @@ export const S_CardSliderWrapper = styled.div<{
   @media (max-width: 1100px) {
     margin-top: 0;
   }
+  @media (max-width: 500px) {
+    margin-top: 10vh;
+  }
 `;
 
 export const S_SwiperBlock = styled.div`
@@ -22,12 +25,12 @@ export const S_SwiperBlock = styled.div`
   }
 
   .swiper-pagination-bullet {
-    background: rgba(66, 86, 122, 0.3);
+    background: var(--color-grey);
     opacity: 1;
   }
 
   .swiper-pagination-bullet-active {
-    background: var(--color-blue);
+    background: var(--color-dark);
   }
 
   @media (max-width: 1100px) {

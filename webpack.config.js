@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (_, argv) => {
   const isProd = argv.mode === 'production';
@@ -9,9 +11,8 @@ module.exports = (_, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.[contenthash].js',
-      publicPath: '/date-circle/',
       clean: true,
-      publicPath: '/',
+      publicPath: isProd ? '/date-circle/' : '/',
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
@@ -43,6 +44,11 @@ module.exports = (_, argv) => {
         template: './public/index.html',
       }),
     ],
+    optimization: {
+      splitChunks: { chunks: 'all' },
+      minimize: isProd,
+      minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+    },
     devtool: isProd ? 'source-map' : 'eval-source-map',
     devServer: {
       static: {

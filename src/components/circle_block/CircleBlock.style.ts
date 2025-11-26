@@ -67,6 +67,9 @@ export const S_Line = styled.div<{ type: 'vertical' | 'horizontal' }>`
   @media (max-width: 1100px) {
     ${({ type }) => (type === 'vertical' ? `display: none;` : ` top: 90%;`)}
   }
+  @media (max-width: 500px) {
+    ${({ type }) => (type === 'vertical' ? `display: none;` : ` top: 100%;`)}
+  }
 `;
 
 export const S_Circle = styled.div`
@@ -97,7 +100,7 @@ export const S_YearsIntervalBlock = styled.div`
     transform: translate(50%, 180%);
   }
   @media (max-width: 500px) {
-    transform: translate(5%, 180%);
+    transform: translate(5%, 300%);
   }
 `;
 
@@ -141,6 +144,10 @@ export const S_CategoryButtonBlock = styled.div<{
   }
   @media (max-width: 800px) {
     transform: translate(0%, 600%);
+  }
+
+  @media (max-width: 500px) {
+    transform: translate(0%, 1500%);
   }
 `;
 
